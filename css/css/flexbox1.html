@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<!-- flex box e css grid
+ flexbox é suportada por quase todos os browses uma forma mais antiga 
+ voce tem duas formas de trabalhar ou em linha ou em coluna
+ css grid voce tem forma de trabalhar bidimensional usando linhas e colunas
+ display flex ou display grid, 
+
+ flex box é unidimensional (row ou column) trabalha apenas em uma dimensao
+ css grid (row e column) trabalha com as duas dimensoes 
+nativo do css, css grid com 90% de suporte nos browsers do mundo e flex box 97%
+
+
+
+Flex Box 
+
+A visao que o css tem sobre os elementos do html são caixas ou seja containers
+quando voce tem  esse flex box, caixa flex passa a ser flex box quando voce marca o elemento com display flex
+quando voce faz isso, voce passa a ter o flex container
+
+Flex container dentro dele voce vai ter o flex item quando eu penso na orientacao (row, column)
+No momento que defino o eixo principal como row o outro eixo passa ser um eixo alternativo secundario que chama de cross axis 
+
+Voce tem o conceito do main axis, eixo prinicipal e tem outro cara que corta atravessando em outro sentido cross axis 
+
+quando voce fala que o main axis é uma coluna o cros axis passa a ser horizontal linha
+Se voce disse que o main axis é a linha o cros axis é coluna  
+
+voce marca com display flex vai gerar um flex container
+dentro dele tem o flex item e assim entre eles temos o eixo principal flex-direction:row sendo o main axis e cros axis flexdirection: column
+
+E temos o main size, tamanho do eixo principal, e o cross size 
+
+no principal voce tem o inicio fim e tamanho
+no cross voce tem o inicio fim e tamanho
+
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #01</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        .big {
+            font-size: 1.5em;
+        }
+        .flex-container {
+            /* Main axis por padrao é o eixo da linha , unidimensional unica dimensao, ou voce seleciona o layout de linha ou de column */
+            /* Por padrao o flex direction é row, todos que estao dentro da div é os flex item, e a logica vai ser do flexbox  */
+            display: flex;
+            /* Main axis passou a ser o eixo da coluna e cros eixo da linha */
+            flex-direction: column;
+            /* Usa o main axis com column e reverteu a logica dos flex item  */
+            flex-direction: column-reverse;
+            /* Alem de inverter a ordem, vai passar pra direita */
+            flex-direction: row-reverse;
+            /* Propriedade padrao */
+            flex-direction: row;
+            /* Mesmo depois a linha saiu do espaço do container  deu overflow, pra resolver voce pode quebrar a linha*/
+            width: 35%;
+            /* ELe vai respeitar as dimensoes e sempre que baater ele vai querer quebrar a linha */
+            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
+            /* Posso misturar essas duas props flex direction com flex wrap  */
+            /* Aqui ele fica em row e quebra de linha */
+            height: 200px;
+            flex-flow: column wrap;
+            /* FLex direction row com flex wrap wrap */
+            flex-flow: row wrap;
+            /* Propriedade de justificar o conteudo, nesse caso to trabalhando com o main axis */
+            justify-content: flex-start;
+            justify-content: flex-end;
+            /* Centralizar  */
+            justify-content: center;
+            /* Space around vai colocar espaço entre os elementos pra ficar distribuido de forma uniforme  */
+            /* EM volta do elemento vai ter o mesmo espaço */
+            justify-content: space-around;
+            flex-direction: row-reverse;
+            /* Apenas o espaço entre os elementos */
+            justify-content: space-between;
+            justify-content: space-around;
+            justify-content: space-between;
+            flex-direction: row;
+
+
+            /* Cross Axis */
+            height: 400px;
+            /* Padrao */
+            align-items: stretch;
+            /* Vai alinhar pela linha de base das fontes  */
+            align-items: baseline;
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: center;
+
+            /* Mais de uma linha */
+            /* Todas as linhas ou colunas vao pro inicio do container */
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel big">3</div>
+        <div class="tag nolabel">4</div>
+        <div class="tag nolabel">5</div>
+        <div class="tag nolabel">6</div>
+        <div class="tag nolabel">7</div>
+        <div class="tag nolabel">8</div>
+        <div class="tag nolabel">9</div>
+        <div class="tag nolabel">10</div>
+        <div class="tag nolabel">11</div>
+
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

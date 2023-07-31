@@ -1,0 +1,11 @@
+{
+    "files": [
+        "src/**/*.ts"
+    ],
+    "compilerOptions": {
+        "rootDir": "src",
+        "noImplicitAny": true,
+        // Qual versão que gera no final
+        "target": "es5"
+    }
+}

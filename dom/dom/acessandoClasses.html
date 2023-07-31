@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        // Vou pegar a lista de classes desse elemento
+        const classes = document.querySelector('div').classList
+        // A partir desse classList consigo adicionar remover, consigo usar uma função chamada toggle que se nao tiver ele adiciona se tiver ele remove
+        // Ele fica alternando a existencia de uma classe em determinado elemento
+        // Posso verificar se a classe está contida ou nao no elemento
+        // Adicionar classe
+        classes.add('destaque')
+        classes.remove('destaque')
+        // ALternancia vai verificar se nao tiver ele adiciona e se tiver remove
+        classes.toggle('destaque')
+        // Verifica se contem essa classe
+        console.log(classes.contains('destaque'))
+        // Quantas classes o elemento tem, no caso vai ter só 1
+        console.log(classes.length)
+        // Ja que ela existe, vai remover o destaque
+        classes.toggle('destaque')
+        console.log(classes.length)
+        classes.add('destaque1')
+        classes.add('destaque2')
+
+        for(let c of classes) {
+            console.log(c)
+        }
+        classes.forEach((e) => console.log(e))
+        const teste = Array.from(classes)
+        console.log(teste)
+        // 
+    </script>
+</body>
+
+</html>

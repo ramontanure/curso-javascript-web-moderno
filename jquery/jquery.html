@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>O que é jQuery?</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        p {
+            font-size: 2em;
+        }
+
+        li {
+            font-size: 1.5em;
+        }
+
+        .destaque {
+            font-size: 1.5em;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<!-- O que é ? 
+    Deixa o processo de manipulação da DOM bem mais simples e boa parte da mudança e melhor do js 
+    foi implementada olhando para o JQuery
+
+    Pensando para trabalhar em conjuntos de elementos
+    Consegue manipular um conjunto de objetos com um unico comando 
+    Na dom voce com querySelectorAll voce pega um conjunto de objetos e tem que iterar sobre eles
+    no Jquery voce pega um conjunto de objetos voce faz uma unica chamada, se essa chamada retornar um conjunto de objetos
+    e voce tem uma função de esconder e não precisando iterar
+    
+    Encadeamento de chamadas (Importante)
+    Voce consegue encadear uma função chamando a outra, chamando a outra, para que voce consiga em uma linha
+    de código fazer varias coisas, me de todas as divs, parents, next
+
+    Voce consegue criar plugins de forma bem tranquila
+    Suporte a muitos browsers existem alguns problemas de incompatibilidades
+
+    Pontos Negativos 
+
+    Os frameworks hoje estão indo por um caminho diferente do jQuery
+    Componentizando react, angular, vue, tem muito cara de framework o react
+    Componentização traz grandes beneficios para voce criar melhor seu software
+    consegue reutilizar melhor partes e essas partes tem comportamento associado,
+    css associado, voce usa esse componente de forma tranquila, quando voce trabalha com
+    componentes, voce tem muito sentido de ter um objeto, com atributos e comportamentos 
+
+    Jquery trabalha muito mais procedural, que te ajuda a manipular a DOM manualmente, imagina
+    que voce ta manipulando a DOM manualmente e voce tem varias funcoes pra te ajudar, com
+    varios plugins, procedural, então voce nao tem esses beneficios de componentização do react 
+
+    É bastante util, facilita, muitos templates são baseados no jQuery, não é tão simples
+    voce fazer uma arquitera, modelo sustenvel do seu sistema no jQuery
+
+    Jquery é uma forma mais otimizada de manipular o DOM
+    Muito sistema hoje usa jQuery
+-->
+
+<body class="conteudo">
+    <p>jQuery</p>
+    <ul>
+        <li>É uma <span class="destaque">biblioteca</span> JavaScript extremamente popular</li>
+        <li>Ajuda na <span class="destaque">busca de elementos</span> e alteração da DOM</li>
+        <li>Trabalha com manipulação de eventos, animações, Ajax...</li>
+        <li>Pensado para trabalhar com conjunto de elementos</li>
+        <li>Usa seletores CSS</li>
+        <li>Encadeamento de chamadas (<i>chaining</i>)</li>
+        <li>É de fácil extensão usando plugins</li>
+        <li>Suporte múltiplos Browsers</li>
+        <li>Só tem pontos positivos? <span class="destaque">Não!</span></li>
+    </ul>
+</body>
+
+</html>

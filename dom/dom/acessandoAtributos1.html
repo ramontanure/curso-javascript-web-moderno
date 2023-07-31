@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img = document.querySelector('img')
+        // Tem como acessar os atributos da imagem atraves do metodo getAttribute
+        // Posso acessar o atributo src
+        console.log('getAttribute', img.getAttribute('src'))
+        // Acessar um atributo sem ser com getAttribute pode acessar direto
+        console.log('src', img.src)
+        // Em alguns momentos é uma string o nome do atributo que voce quer selecionar e nao necessariamente o valor
+        // Outra maneira seria com um array
+        console.log('["src"]', img['src'])
+        // Acessando outro atributo
+        console.log('alt', img.alt)
+        //Alem de ter os atributos que estão definidos explicitamente dentro da tag voce tambem tem atributos que são inplicitos
+        // TOdos os elementos e atributos tem uma propriedade chamada node type
+        console.log('ELemento "img".............')
+        // NodeType 1 sgnifica que ele é do tipo elemento, nodeType 2 quer dizer atributo
+        // Cada um deles tem um node type
+        console.log('NodeType', img.nodeType)
+        // Acessar o nome daquele elemento
+        console.log('NodeName', img.nodeName)
+        // Pegando um atributo pra gente trabalhar
+        // Diferente de get Atributte que vai me dar o valor daquele atributo
+        // O getAttributeNode vai me da um nó que representa aquele atributo
+        const src = img.getAttributeNode('src')
+        console.log('Atributo "src" ..................')
+        console.log('NodeType' ,src.nodeType)
+        console.log('NodeName', src.nodeName)
+        console.log('NodeValue', src.nodeValue)
+
+        const link = document.querySelector('a')
+
+        console.log('ELemento "a" ..........')
+        console.log('href', link.href)
+        // Outra possibilidade é de pegar o filho daquele elemento
+        // Dentro dele tenho apenas 1 elemento que é um texto e representa um nó dentro da DOM
+        // Node Type 3
+        console.log('firstChild.nodeType', link.firstChild.nodeType)
+        // Alterando o valor do filho do link
+        link.firstChild.nodeValue = 'Novo Texto'
+        link.innerHTML = "Novo Texto 2"
+    </script>
+</body>
+
+</html>

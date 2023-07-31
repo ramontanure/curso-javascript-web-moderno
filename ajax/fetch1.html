@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        const url = 'dados/estados.json'
+        // dentro da (resp) não tenho os dados convertidos então tenho que colocar resp.json() essa função .json() vai retornar uma promisse e aqui posso encadiar melhor outra função then que vai encadiar melhor
+        fetch(url).then(resp => resp.json()).then(estados => {
+            const itens = estados.reduce(
+                (html, estado) => html + `<li>${estado.nome}</li>`, ''
+            )
+            document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+        })
+    </script>
+</body>

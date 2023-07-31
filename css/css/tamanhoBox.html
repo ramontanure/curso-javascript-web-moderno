@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tamanho Box</title>
+    <style>
+        * {
+            /* box-sizing: border-box; */
+        }
+        body {
+            font-size: 45px;
+            margin: 0;
+        }
+        div {
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            /* Nesse caso o conteudo é 100% mas, tem o padding e border que somam a mais */
+            /* Com border box, o padding, conteudo e o border vao ser 100% */
+            /* Tudo que tiver dentro da borda vai ser considerado, aqui leva em consideração o padding e a borda, nao passando dos 100% */
+             box-sizing: border-box; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        O tamanho do Box é...
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #02</h1>
+    <div id='div1'>1</div>
+    <div id='div2'>2</div>
+    <div id='div3'>3</div>
+    <p class='numero'>4</p>
+    <p class='numero'>5</p>
+
+    <script>
+        // Selecionando elemento com id Div 1 e acrescentando o html
+        $('#div1').append(', 2')
+        $('#div1').prepend('0, ')
+        // Quando voce passar o conteudo como por exemplo esse span 
+        // Adicione para dentro de div1
+        // Uma obs é que se eu passar sem o span ele vai dar um erro, por que não reconhece
+        $('<span>, 3</span>').appendTo('#div1')
+        $('<span>-1, </span>').prependTo('#div1')
+
+        // Colocar antes da div 2
+        $('#div2').before('<p>Antes 2 </p>')
+        // Colocar depois da div 2
+        $('#div2').after('<p>Depois2 </p>')
+        // Inverte a ordem, defino o nó que quero criar e o seletor que quero usar para inserir esse elemento
+        // Inserir antes da div3
+        $('<p>Antes 3</p>').insertBefore('#div3')
+        // Inserir após da div3
+        $('<p>Depois 3</p>').insertAfter('#div3')
+        // Envolver os dois paragrafos em uma div
+        // $('p.numero').wrap('<div>')
+        // Alem de criar uma div que tem um id div 4, ele vai pegar o elemento que selecionou e vai colocar os dois paragrafos dentro dessa div
+        $('p.numero').wrapAll('<div id="div4">')
+        // limpar o conteudo da div
+        $("#div4").empty()
+        // Pegando o div3 e div4 juntos
+        // pegando o anterior e removendo
+        $('#div3, #div4').prev().remove()
+        // body > p todos os p que estão diretamente dentro de body será substituido por essa div Substituto
+        // $('<div>Substituto</div>').replaceAll('body > p')
+        // Mesma função só que invertida
+        $('body > p ').replaceWith('<div>Substituto</div>')
+        $('body > p ').replaceWith(function () {
+            return $('<div').html($(this).html()).append('!!!')
+        })
+
+
+
+    </script>
+</body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #03</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <!-- É necessario voce colocar name dentro dos campos de enRtrada do formulario -->
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <!-- HostLanguage, linguagem da maquina que fez a pesquisa-->
+        <!-- É muito facil selecionar elementos do tipo name -->
+        <select name="hl">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button>Pesquisar</button>
+    </form>
+    <script>
+        // Uma das formas que voce tem de selecionar os forms é a partir dessa propriedade document, vai retornar do tipo html collection
+        console.log(document.forms)
+        console.log(document.forms[0])
+        // Outra forma interessante é voce usar o name pra obter tanto o formulario e tanto os inputs desse formulario
+        // Atraves do nome
+        console.log(document.getElementsByName('pesquisa')) 
+        // TEr cuidado pq uma hora pode vim um node list e outra hora um html collection
+        console.log(document.getElementsByTagName('pesquisa')) 
+        // Só isso vai procurar o elemento que tem o name pesquisa
+        console.log(document.pesquisa)
+        console.log(document.pesquisa.q)
+        document.pesquisa.q.value = 'Linux'
+        // São dois parametros que voce pode passar pra uma consulta do google q de query, hl é hostlanguage
+        // document.pesquisa.hl.value = 'en-us'
+        console.log(document.pesquisa.hl.selectedIndex)
+
+    </script>
+</body>
+
+</html>

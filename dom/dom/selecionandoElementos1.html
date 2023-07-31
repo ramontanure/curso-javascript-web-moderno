@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+       //Selecionar elementos a partir da DOM 
+    //    getElementByID, getElementTagName, getElementClassName
+    // Como ele espera receber um ID não preciso colocar o #
+    // ClassList.add vai pegar todas as classes existentes e vai adicionar a estilização de destaque
+    // Aqui eu passo o id e adiciono nele a class destaque que estã no styles
+    // Pega o primeiro id que encontrar com esse nome
+    document.getElementById('primeiro').classList.add('destaque')
+// Todos os elementos divs serão acessados a partir desse metodo
+// Nesse caso vai pegar uma lista de divs
+    const divs = document.getElementsByTagName('div')
+    // As vezes é interessante transformar isso em um array
+    // Aqui estou transformando divs em um array e pegando cada elemento dentro dele removendo a classe destaque
+    Array.from(divs).forEach(e => e.classList.remove('destaque'))
+    // Outra forma de transformar HTML collection em um array é utilizar o operador spread
+// Vai espalhar cada um dos elementos dentro do array
+    const divsArray = [...divs]
+    // Aqui todos os elementos ficaram com a classe destaque
+    divsArray.forEach(e => e.classList.add('destaque'))
+    // Se tiver apenas um unico elemento vai vim uma lista com um unico elemento
+    const ultimosElementos = document.getElementsByClassName('ultimo')
+    // Mesmo assim vem dentro de um html collection é importante saber disso
+    for(let e of ultimosElementos) {
+        // Como ele é um interator voce consegue fazer um for em cima dele
+        e.classList.remove('destaque')
+    }
+    
+    </script>
+</body>
+</html>

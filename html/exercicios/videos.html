@@ -1,0 +1,60 @@
+<video id="meuVideo" width="800" height="450" controls controlsList="nodownload">
+    <!-- props controlsList nodownload serve para tirar a opção de download dentro do video -->
+    <!-- controls vai aparecer todas aquelas opções de controle do video como pausar continuar  -->
+    <!-- auto play significa que no momento que eu entrar naquela tela ele vai da play automaticamente -->
+    <!-- Voce pode colocar fonte tanto na tag video tanto na source, a vantagem da source que voce pode colocar varias tags sources e varios videos -->
+    <!-- Usando a tag source voce consegue colocar varias fontes diferentes. -->
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+     Seu browser não suporta a tag de video.
+</video>
+
+<!-- mesmo id do video pra saber que o video esta sendo associado -->
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px
+
+    }
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+
+function configurarVideo(id) {
+    const video = document.getElementById(id)
+    video.oncontextmenu = () => false //Aqui vai não vai aparecer o download, quando o usario clica com o botao direito ele nao aparece o menu
+    //Para filtrar chave e valor especifica basta colocar, dessa forma pego extamente o botao play que tem como valor o id
+    document.querySelector(`[wm-play = ${id}]`).onclick = (event) => video.play()
+    document.querySelector(`[wm-pause = ${id}]`).onclick = (event) => video.pause()
+    
+    setInterval(() => {
+        const percentual = (video.currentTime / video.duration) * 100
+        const Valorprogresso = document.querySelector(`[wm-progresso = ${id}] > div`)
+         console.log(percentual)
+        Valorprogresso.style.width = `${percentual}%`
+        Valorprogresso.innerHTML = `${percentual.toFixed(1)}%`
+
+    }, 1000)
+}
+
+configurarVideo('meuVideo')
+
+</script>

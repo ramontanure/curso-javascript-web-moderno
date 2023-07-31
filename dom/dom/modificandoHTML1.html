@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        // Aqui vou criar uma constante chamado body para inserir dentro do body
+        // Pegando o elemento body
+        const body = document.querySelector('body')
+        // Criar elementos, passo o tipi do elemento que quero criar
+        const div1 = document.createElement('div')
+        // Adicionar uma nova classe na div
+        div1.classList.add('destaque')
+        // Alem de criar uma classe, crio o conteudo desse elemento
+        div1.innerHTML = 'Primeiro'
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        // Adicionar o paragrafo dentro da div3
+        // O pai seria div3 e o p filho e o filho sera adicionado no ultimo elemento do pai
+        div3.appendChild(p)
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        // div3 vai adicionar seus filhos tambem
+        body.appendChild(div3)
+        // Criando um nó de texto
+        const texto = document.createTextNode('Antes...')
+        // Aqui criei um texto e quero inserir na div 3 esse texto e antes do nó 1
+        // childNodes é a positição que voce quer inserir antes do elemento 0
+        div3.insertBefore(texto, div3.childNodes[0])
+
+        // Criação de clone atraves do js, vai copiar também todos os seus filhos se passar false nao copia os filhos
+        const div4 = div3.cloneNode(true)
+        body.appendChild(div4)
+
+        // Remover tambem um elemento do html
+        body.removeChild(div3)
+        body.removeChild(div2)
+    </script>
+</body>
+
+</html>

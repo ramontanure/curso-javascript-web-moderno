@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        .flex-container div {
+             box-sizing: border-box; 
+        }
+        .flex-container {
+            /* flex padrao é flex direction */
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+        /* Aplicar a propriedade pro terceiro filho dentro do flex-container */
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* Propriedade order vai fazer que eu consiga manipular a ordem desses elementos */
+            /* Todos os itens de um flex container tem o peso 0, quando voce seta order 1, o item passa ter um peso maior, order maior passa a ser o ultimo considerado */
+            /* Os elementos com order maior vao sendo exibidos por ultimo  */
+            order: 1;
+            order: 0;
+            /* A order vai ser exibido na primeira posição por que o peso vai ser menor  */
+            order: -1;
+            /* Voce pode usar para alinhar um determinado elemento */
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            /* padrao */
+            align-self: stretch;
+        }
+        .flex-container div {
+            width: 100px;
+            /* flex grow vai servir pra definir a logica pra calcular qual espaço ta faltando  */
+            /* Voce tem 4 elementos, cada elemento ocupa 100px de width só que o espaço da div é 600px entao temos 200 px sobrando  */
+            /* Quando voce coloca o flexgrow voce coloca o peso 1, como os 4 tem os mesmos pesos, ele vai pegar esse valor e somar */
+            /* Vai pegar os 200 px que sobrou e divide por 4 e ele vai da 50 px a mais pra cada um dos elementos */
+            flex-grow: 1;
+            /* Se apenas 1 tiver o flex grow maior que 1 ele vai somar e vai da 5 vou pegar os 200 e dividir por 5, vai aplicar ao peso, 40 *2 e 40*1 */
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+        /* Vai pegar o primeiro elemento inserido na div */
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            /* Mesma logica do flex grow */
+            flex-shrink: 1;
+        }
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

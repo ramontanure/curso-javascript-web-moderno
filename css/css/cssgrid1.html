@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #01</title>
+    <style>
+        /* https://caniuse.com/#feat=css-grid */
+        
+        html,
+        body {
+            margin: 20px;
+            height: calc(100% - 40px);
+            background-color: lightgray;
+        }
+        
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: solid 5px dodgerblue;
+            background: #fff;
+        }
+        body {
+            /* Ocupar todo os espaço 100% na altura, isso só aconteceu por que tem a altura la em cima  */
+            /* Diferente do flex box css grid tem linhas e colunas, bidemensional */
+            display: grid;
+            /* Vou definir qual a organização de coluna do css grid */
+            /* A primeira coluna quero que tenha 50% do espaço e a segunda coluna 50% do espaço*/
+            grid-template-columns: 50% 50%;
+            /* Posso usar a função repeat e vai multiplicar 12 vezes por aquele valor */
+            /* VOu ter 12 colunas com 8.33% */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%);
+            grid-template-columns: repeat(12, 8.33%);
+            /* Quero 11 colunas com 100 px, e colocar o 12 com 100px */
+            grid-template-columns: repeat(11, 100px) 100px;
+            /* quero que minha coluna tenha o minimo de 100px, e max de 300px minmax(100px, 300px) */
+            /* Aqui estou dizendo que vou ter 3 colunas para organizar meus elementos
+            A primeira coluna vai ter 200 px, a segunda 20%, a terceira vai pegar 1fr todo o resto que sobrou */
+            grid-template-columns: 200px 20% 1fr;
+            /* 3 colunas, a primeira coluna vai pegar 3/12 fragmentos, meio 6/12 e fim 3/12*/
+            grid-template-columns: 3fr 6fr 3fr;
+            /* Aplicar templates pras linhas */
+            grid-template-rows: 50% 25% 12.5% 12.5%;
+            /* significa que a primeira linha vai ocupar 100px a segunda 1fr, e o resto vai pegar os espaços que sobrar*/
+            grid-template-rows: 100px 1fr;
+            /* Vai colocar 100px na primeira linha e o resto auto */
+            grid-template-rows: 100px auto;
+        }
+        .d8 {
+            /* ELe vai começar na 2 e vai ate'a coluna 4 Vai ocupar o espaço do 8 e do 9 */
+            grid-column-start: 2;
+            grid-column-end: 4;
+            /* Comece da coluna 2 até a 
+            4  */
+            grid-column-end: span 2;
+            grid-row-start: 3;
+            grid-row-end: 5;
+            /* span um pouco mais didatico */
+            grid-row-end: span 2;
+        }
+        .d10, .d11 {
+            /* Podem se sobrepor */
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;
+        }
+        .d10 {
+            /* z-index significa a profundidade dos elementos, como voce vai organizar os elementos na pagina, quem vai ficar na frente de quem */
+            /* QUanto maior o z-index vai ficar na frente do seu componente */
+            z-index: 1;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+    <div class="d5">5</div>
+    <div class="d6">6</div>
+    <div class="d7">7</div>
+    <div class="d8">8</div>
+    <div class="d9">9</div>
+    <div class="d10">10</div>
+    <div class="d11">11</div>
+    <div class="d12">12</div>
+</body>
+
+</html>

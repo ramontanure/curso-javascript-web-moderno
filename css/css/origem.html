@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+    <!-- rel significa relacao, e esse arquivo que voce ta usando tem a ver com essa pagina -->
+    <link rel="stylesheet" href="css/externo.css">
+
+</head>
+<!-- Sempre priorizar css dentro dos arquivos, não inline e inline tem uma preferencia maior -->
+<body style="background-color: coral">
+    <h1>E agora?</h1>
+</body>
+
+</html>

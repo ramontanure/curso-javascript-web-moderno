@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <!-- Label aponta pra compras "compras" -->
+        <ul id="compras" destino='escritório' data-urgencia="5" data-blabla="opa">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        // Seria muito mais inteligente utilizar o id
+        console.log('Elemento "ul" ..............')
+        console.log('childNodes', lista.childNodes)
+        // Acessar os atributos especificos de determinado elemento a partir da notacao ponto
+        // Nao vai mostrar pq o destino é uma propriedade personalizada 
+        console.log('destino', lista.destino)
+        // com esse metodo nao vai ter problema, ele considera as propriedades personalizada e usando direto a notacao ponto voce nao vai conseguir
+        console.log('getAttribute', lista.getAttribute('destino'))
+        // Verifica se contem em um determinado elemento
+        console.log('has Attribute', lista.hasAttribute('destino'))
+        // Como voce tem o getAttribute pra pegar o atributo voce tambem tem o setAttribute
+        // Aqui passou a ser empresa em vez de escritorio
+        lista.setAttribute('destino', 'empresa')
+        // criando um atributo, setAttribute serve para criar um atributo ou alterar um atributo 
+        lista.setAttribute('status', 'aberto')
+        // Metodo para remover atributo
+        lista.removeAttribute('destino')
+        // Os atributos personalizados com hifen no meio sao tratados diferentes dos que nao tem
+        console.log('', lista.dataset.urgencia)
+        // Vai aparecer urgencia 5 no console.log
+        // Nao tem problema utilizar atributos personalizados sem o data, mas tem que saber que existe uma leve diferenca quando voce usa o prefixo que é esperado data -
+        lista.dataset.urgencia = 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // cuidados 
+        // Nem sempre o atributo que está disponivel no html voce vai poder acessar com o mesmo nome
+        const label = document.querySelector('label')
+        // Nao vai acessar o valor do atributo
+        // Como o for é uma palavra reservada da linguagem eu não posso usar um identificador sendo for
+        // Para acessar esse atributo vamos usar htmlFor
+        console.log(label.htmlFor)
+        // Aqui ja pega
+        // consol.log(label.getAttribute('for'))
+        // Atributos do html voce consegue acessar com a notacao ponto, atributos personalizados voce consegue acessar com getAtribute e quando os atributos são personalizados, e são data- ele vai pra dentro do data set e voce consegue acessar por la
+    
+    </script>
+</body>
+
+</html>

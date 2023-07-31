@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Mini SPA</title>
+    <link rel='stylesheet' href='../css/estilo.css'>
+    <style>
+        nav {
+            font-size: 2em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FFF;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body class="conteudo">
+    <nav>
+        <a href wm-link="series.html" wm-destino=".pagina">Séries</a> |
+        <a href wm-link="linguagens.html" wm-destino=".pagina">Linguagens</a>
+    </nav>
+    <div class="pagina"></div>
+    <script>
+        // A url seria series.html e linguagens.html, e o seletor seria .pagina
+        function navegarViaAjax(url, seletor, push = true) {
+            if(!url || !seletor) return
+            const elemento = document.querySelector(seletor)
+            // Pegando dados do html e não do json, estou pegando texto do html a partir dessa função
+            fetch(url).then(resp => resp.text()).then(html => {
+                elemento.innerHTML = html
+                if(push) {
+                    // Estado
+                    history.pushState({seletor}, "Pagina", url)
+                }
+            })
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            // Vou pegar o valor desse atributo e armazenar na url
+            const url = link.attributes['wm-link'].value
+            const seletorDestino = link.attributes['wm-destino'].value
+
+            link.onclick = e => {
+                e.preventDefault()
+                navegarViaAjax(url, seletorDestino, true)
+            }
+        })
+        // Estou tirando dentro da estrutura de dados do tipo pilha, tirar primeiro elemento
+
+        window.onpopstate = e => {
+            if(e.state) {
+                navegarViaAjax(window.location.href, e.state.seletor, false)
+            }
+        }
+
+
+    </script>
+</body>

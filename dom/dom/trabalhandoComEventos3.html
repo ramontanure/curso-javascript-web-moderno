@@ -1,0 +1,77 @@
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #03</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+        }
+        
+        .esquerda {
+            height: 100vh;
+            width: 50%;
+            background-color: coral;
+        }
+        
+        .direita {
+            height: 100vh;
+            width: 50%;
+            background-color: cornflowerblue;
+        }
+        
+        .item {
+            border: solid 5px black;
+            background-color: darkgrey;
+            color: white;
+            height: 100px;
+            font-size: 40px;
+            margin: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="esquerda" wm-dropzone>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <div class="direita" wm-dropzone></div>
+    <script>
+        const items = document.querySelectorAll('[wm-dropzone] .item')
+        items.forEach((item, index) => {
+            // Estou aceitando que esse elemento pode ser arrastado chamado draggable 
+            item.draggable = true
+            // Se o id for false não tiver setado vou colocar esse id e o indice
+            item.id = item.id || `draggable-item-${index}`
+            // O id vai existir pq na linha de cima estou setando o id
+            // Evento de arrastar o elemento, quando eu começar a acessar o elemento
+            item.ondragstart = (e) => {
+                e.dataTransfer.setData('item-id', e.target.id)
+            }
+        })
+        const dropZones = document.querySelectorAll('[wm-dropzone]')
+        // Fazendo um forEach pra pegar todos os atributos com esse nome
+        dropZones.forEach(dropzone => {
+            // ondragover ele acontece antes do evento que de fato quero tratar que é o ondrop 
+            // Se eu não fizer isso o evento necessario não vai ser chamado
+            dropzone.ondragover = e => e.preventDefault()
+            dropzone.ondrop = e => {
+                // Pegando o id 
+                const id = e.dataTransfer.getData('item-id')
+                const item = document.getElementById(id)
+                e.target.appendChild(item)
+                dropzone.appendChild(item)
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<h1>Links</h1>
+
+<!-- URL Absoluta, vode pode ter links por url absoluta -->
+<a id="inicio" href="http://www.google.com.br">Google 1</a><br>
+<a href="http://www.google.com.br" target="_blank">Google 2 </a><br>
+<!-- propriedade target serve para quando voce clicar no link, ele abra outra aba para que nao saia de seu site -->
+<!--com o target aqui, a referencia é em branco-->
+<!-- com o link absoluto voce nao pode tirar o http, pq se nao ele vai entender que é um link relativo -->
+
+<!-- URL Relativa -->
+
+<a href="index.html">Voltar 1</a><br>
+<a href="/index.html">Voltar 2</a><br>
+<a href="../index.html">Voltar 3</a><br>
+<!-- tres formas de eu voltar diferentes -->
+
+<!-- Links configurados para mandar email, mailto ele acessa um email -->
+<a href="mailto:email@empresa.com.br">Entre em contato</a><br><br>
+
+
+<!-- Com div#noticia ele cria a tag automaticamente com a propriedade id noticia -->
+<div id="noticia" style="position:absolute;top:2000px">
+    <h1>Notícia Buemba!</h1>
+    <p>Nao era nada.. :)</p>
+    <a href="#inicio">Inicio</a>
+</div>
+
+
+<!-- Aqui estou navegando na propria pagina colocando o link como #noticia que é o id da noticia -->
+<a href="#noticia">Ir para Noticia</a>
+<!-- A gente chama isso de ancora -->

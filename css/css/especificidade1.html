@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Especificidade CSS</title>
+    <style>
+        /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /* Em linhas gerais
+        A especificação é a maneira de como os navegadores definem quais valores de propriedades são os mais relevantes para o elemento a ser utilizado
+         1 - regra com  !important
+         2 - seletores mais especificos
+         3 - ultima regra processada(empate)
+        
+         */
+        p {
+            background-color: #aaa;
+
+        }
+
+        /* Propriedade de classe mais forte que o seletor de elemento */
+        .observacao {
+            background-color: #5F5;
+            border: dashed 5px;
+            font-size: 40px !important;
+            /* important ele burla a ordem da espcificadade */
+            padding: 20px;
+        }
+
+        /* Mais especifico(relavante) do que a classe sozinha */
+        p .observacao {
+            padding: 5px 60px;
+            background: linear-gradient(to right, red, yellow);
+        }
+    </style>
+</head>
+
+<body>
+    <p class='observacao'>Olha essa observação!!!!</p>
+</body>
+
+</html>

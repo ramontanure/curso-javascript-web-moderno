@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            width: 100%;
+            height: 100%; 
+            margin: 0;
+            background-color: lightgray;
+
+        }
+        .cabecalho {
+            background-color: slategrey;
+            display:flex;
+            padding: 16px;
+            height:  60px;
+            flex-direction: row;
+            border-bottom: solid 5px #000089;
+            align-items: center;
+        }
+        .logo {
+            width: 15%;
+        }
+        img {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+        }
+        @media (max-width: 750px) {
+            .menu-toggle {
+                display: block;
+                height: 60%;
+                width:  6%;
+            }
+            .menu, .autenticacao{
+                display: none;
+            }
+            .cabecalho {
+                justify-content: space-between;
+            }
+            img{
+                width: 100%;
+            }
+            .logo{
+                width: 30%;
+            }
+        }
+
+        menu {
+            background-color: blue;
+        }
+        ul {
+            font-size: 40px;
+            color: white;
+            display: flex;
+            list-style: none;
+            text-decoration: none;
+        }
+        li {
+            padding: 15px;
+            text-align: center;
+            align-items: center;
+        }
+        li:hover {
+            background-color: #000089;
+        }
+        a:hover{
+            color: black;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            align-items: center;
+            font-size: 25px;
+            font-family: Oswald;
+        }
+        .botao {
+            border-radius: 60px;
+            padding: 5px 20px;
+            box-shadow: 2px 1px black;
+            background-color: red;
+            margin-left: 20px;
+        }
+        .autenticacao {
+            position: fixed;
+            right: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        //Sempre que o hash muda ele vai chamar essa função
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            //Aqui estou acessando o menu, que tem dentro dele essa url
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+            //Se oldLink for verdadeiro ela pega o class list e da um remove no selected
+            oldLink && oldLink.classList.remove('selected')
+            newLink && newLink.classList.add('selected')
+        }
+    </script>
+</body>
+
+</html>

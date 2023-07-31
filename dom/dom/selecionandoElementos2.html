@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro" wb-attrib>#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+    //  Acessando elementos com queryselector  e queryselectorall
+    // Essas duas funções lembra muito como voce seleciona elementos do jquery, inspirados no jquery
+    // O query selector espera um seletor css, por class id, tag, atributos, elementos
+    // Mesmo que o seletor que voce passe ele vai pegar apenas o primeiro
+    document.querySelector('#primeiro').classList.add('destaque')
+
+    const selecionar = seletor => 
+    // Quero adicionar uma classe destaque pra todos os elementos que tiverem o seletor desejado nesse nodeList
+       document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+    //    Query selector all não retorna um html collection como é o caso da função getELementByTagName
+    // Ele retorna um nodeList tem a função forEach e voce pode pecorrer
+    // Ela tem a função forEach mas dependendo da situação vocce vai precisar de fato converter pra um array por exemplo se for usar um map
+    
+    const deselecionar = seletor => 
+    document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+    selecionar('div')
+    // Posso passar o seletor universal todos os elementos foram deselecionados
+    deselecionar('div')
+    // Quero selecionar a classe  que tem terceiro e ultimo no mesma tag
+    selecionar('.terceiro.ultimo')
+    deselecionar('*')
+    // Aqui é um pseudoClasse que não vai ser seleciona apenas o primeiro
+    selecionar(':not(#primeiro)')
+
+    deselecionar('*')
+    // Primeiro filho de algum elemento
+    selecionar(':nth-child(1)')
+    deselecionar('*')
+    // PseudoClasse que vai selecionar a ordem que eu passar 
+    // Primeiro elemento de um determinado tipo, do tipo div nesse caso
+    selecionar('div:nth-of-type(1)')
+    deselecionar('*')
+
+    selecionar('[wb-attrib')
+
+
+    </script>
+</body>
+</html
+>

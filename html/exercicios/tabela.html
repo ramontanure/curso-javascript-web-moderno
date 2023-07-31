@@ -1,0 +1,68 @@
+<!-- Para criar uma tabela o nome da semantica, marcacao, tag é  table -->
+<!-- Posso colocar um caption, que segnifica pra que serve essa tabela -->
+<!-- Dentro de uma tabela, voce tem a parte do cabeçalho, o corpo da tabela, e voce tem a parte do rodape  -->
+<table>
+    <caption>Produtos</caption>
+    <!-- thead vai definir a area que voce vai colocar o cabecalho da tabela -->
+    <thead>
+        <!-- Depois voce define um table row(tr) -->
+       <tr>
+           <!-- e dentro do table row voce vai colocar um th que significa table head -->
+           <th>Produto</th>
+           <th>Preço</th>
+           <th>Quantidade</th>
+           <th>Total</th>
+       </tr>
+    </thead>
+    <!-- Alem de ter os cabecalhos e as colunas vou ter o t body, que é o corpo da tabela -->
+   <!-- Por questoes de semantica é ideal que voce coloque um tHead e t body -->
+    <tbody>
+        <tr>
+            <!-- A tabela vai ter a primeira linha q dentro dela vamos ter o table data, que são os dados -->
+            <td>Ipade</td>
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <!-- table data representa uma celula da table -->
+            <td>Sansung S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <!-- rodapé  -->
+    <tfoot>
+        <tr>
+            <!-- Aqui voce tem uma propriedade para ocupar mais de uma coluna de colspan  -->
+            <!-- Então aqui voce tem propriedades de celular que voce pode ter mais linhas e mais colunas em uma celula -->
+            <td colspan="3">Total</td>
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+
+    }
+    th, td {
+        padding: 10px;
+    }
+    thead tr {
+        border-bottom: solid 3px #444;
+
+    }
+
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>

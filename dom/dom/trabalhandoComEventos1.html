@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<!-- Tratamento de eventos
+Como os eventos são disparados e são tratados,
+ Voce tem diversos eventos no html como por exemplo click de um link botão, submit
+Padrão de projeto mais utilizado na web
+Padrão é observer um dos padrões mais utilizados,   -->
+<body class="conteudo exercicio">
+    <div>
+        <!-- Quando acontecer o evento do click invoque essa função e passe o evento como parametro -->
+        <!-- A vantagem de ter o onclick diretamente da tag, é que fica muito explicito para quem está lendo o código que ali vai ter um tratamento no evento onclick  -->
+        <!-- Desvantagem é que de forma hardCoded a chamada da função -->
+        <!-- onclick="navegarEm5s(event)" -->
+        <!-- COm o atributo personalizado voce pressupõe que o javascript vai ler isso -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        function navegarEm5s(e) {
+            // Ele vai previnir que o comportamento padrão ocorra
+            e.preventDefault()
+            console.log('Saindo em 5s....')
+            
+            setTimeout(() => {
+                // O "e" é o evento e dentro de um evento tenho uma propriedade chamada target, uma props muito importante
+                //Que é o elemento html que disparou o evento, se eu disparei o evento o e.target é o link
+                const link = e.target
+                // link href é o https://google.com.br
+                // window.location.href estou substuindo o endereço na barra de pesquisa do navegador
+                window.location.href = link.href
+            }, 5000)
+        }
+        // Forma implicita
+        // const a = document.querySelector('a')
+        // Ja resolveu um dos problemas pra nao fazer o hardCoded
+        // a.onclick = navegarEm5s
+        
+        // a.onclick = (e) => {
+        //     navegarEm5s(e)
+        // }
+
+        //Forma Explicita
+
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+
+
+    </script>
+</body>

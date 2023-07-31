@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Altura e Largura</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            font-size: 40px;
+            background-color: coral;
+            height: 100%;
+            margin: 0;
+        }
+
+        div {
+            background-color: seagreen;
+        }
+
+        span {
+            background-color: dodgerblue;
+        }
+        /* Para que o span que vem como padrao display inline não vai aplicar a altura e largura, agora se passar para display block ele vai permetir */
+        /* Só vai colocar 50% se os parents do elemento html estiverem 100%, tamanho absoluto vai crescer como px, é como se fosse voce colocar varios outros elementos*/
+        span, div {
+            width: 50%;
+            height: 50%;
+            display: inline-block;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>Título</div>
+<span>Subtítulo</span>
+</body>
+
+</html>

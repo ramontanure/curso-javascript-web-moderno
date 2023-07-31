@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Um Pouco de CSS</title>
+        <link rel="stylesheet" href="poucodeCSS.css">
+        <style>
+            /*Aqui dentro posso acessar o elemento html atraves do nome da tag e sera aplicados para todos daquela tag e tambem atraves da referencia por propriedades */
+          h1 {
+              display: none;/*Significa que todos os h1 da pagina vao sumir*/
+          }
+
+          .fundoVermelho { /*Consigo acessar uma classe CSS atraves de um ponto*/
+            background-color: #C00;
+          }
+
+          .negrito {
+              font-weight: bold;
+          }
+        </style>
+    </head>
+    <body>
+        <h1>CSS</h1>
+        <span id="textPrincipal"><!--Tag HTML não visual, e praticamente todas as tags html tem essa prop ID, tem a ideia de ser um identificador unico dentro de uma pagina-->
+            Texto 1
+        </span><br><br><br>
+        <span class="fundoVermelho negrito"><!--Class também é um indentificador, props, que é muito associado ao uso de estilo, para que voce possa aplicar uma determinada classe em varias tags, tenho 2 classes marcados com esse span e podendo utilizar assim no style-->
+            Texto 2
+        </span><br><br>
+        <span class="fundoVermelho"><!--Class também é um indentificador, props, que é muito associado ao uso de estilo, para que voce possa aplicar uma determinada classe em varias tags, tenho 2 classes marcados com esse span e podendo utilizar assim no style-->
+            Texto 2
+        </span>
+        <!--document.querySelectorAll('.fundoVermelho') serve para achar o elemento dentro do html e para achar atributos personalizados, props personalizados usa se o []-->
+
+        
+    </body>
+</html>

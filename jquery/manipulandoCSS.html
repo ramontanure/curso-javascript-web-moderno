@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Manipulando CSS</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Manipulando CSS</h1>
+    <div id='div1'>1</div>
+    <div id='div2'>2</div>
+    <div id='resultado'></div>
+    <script>
+        // Uma das formas de voce selecionar determinado atributo que uma tag tem é chamar a função css, e voce quer ler esse atributo
+        const fonte = $('#div1').css('font-family')
+        // Pegando o valor da fonte da div 1 e colocando como string no resultado
+        $('#resultado').append(`Fonte é ${fonte}`)
+        // Alem de voce usar essa função pra ler um atributo css, tem como alterar
+        // Colocar que a fonte da div1 vai ser 3em
+        $('#div1').css('font-size', '3em')
+        // Voce pode mexer alem de um atributo, um conjunto de atributos de um objeto
+        $('#div1').css({
+            'font-size': '3.5em',
+            'color': 'yellow'
+        })
+        // Na função css voce pode passar também uma callback
+        $('#div1').css('font-size', function () {
+            return `${2 * 2}em`
+        })
+
+        $('#div2').addClass('destaque')
+
+        // Verificar se a classe está presente em um elemento
+        const temClasse = $('#div2').hasClass('destaque')
+        $('#resultado').append(`<br>Tem class? ${temClasse}`)
+
+        // Remover uma classe
+        $('#div2').removeClass("destaque")
+        // Uma função chamada toggle alternar se nao tiver ele adiciona e se tiver ele remove
+        $('#div2').toggleClass('destaque')
+        $('#div2').toggleClass('destaque')
+    </script>
+</body>

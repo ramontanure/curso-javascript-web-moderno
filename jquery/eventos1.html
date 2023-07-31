@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #01</h1>
+    <div id='posicao'></div>
+    <div id='cliques'>Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background">
+
+    <script>
+        function mostrarPosicaoMouse(e) {
+            // Sempre que o evento('mouse') for notificado sempre que essa função for chamada passando o evento vou atualizar a posição 
+            // Qual posição o mouse está dentro do browser
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        // Associar ao body sobre o evento do body
+        // Essa função on, ela registra um evento dentro do jquery, voce passa primeiro o nome do evento como string, e o segundo parametro é a função que será chamada quanto esse evento acontecer  
+        $('body').on('mousemove', mostrarPosicaoMouse)
+        // Alem de chamar a função on voce pode por exemplo chamar diretamente a função mouseover
+        // Algum elemento que tenha um id posicao quando acontecer o mouseover vou colocar uma função callback 
+        $('#posicao').mouseover(e => {
+            //Quando eu passar o mouse em posição quero que remova mostrarPosicaoMouse
+            $('body').off('mousemove', mostrarPosicaoMouse)
+        })
+
+        // No momento que ele sair dessa div de posição quero q volte a ter o mousemove
+        $('#posicao').mouseleave(e => {
+            $('body').mousemove(mostrarPosicaoMouse)
+        })
+
+        // Monitorando clique
+        let cliques = 0
+        $('body').on('click', function (e) {
+            $('#cliques').html(`Cliques: ${cliques++}`)
+        })
+
+        // Eventos de teclado
+        const backgroundOriginal = $('body').css('background-color')
+        // O valor não é atualizado no evento keyDown, keypress e no keyup sim
+        $('input').keyup(function (e) {
+            // Valor atual, forma de pegar o valor pelo jquery, tomar cuidado com this
+            const valor = $(this).val()
+            if (valor.match(/#[\da-fA-F]{3,6}/)) {
+                $('body').css('background-color', valor)
+            } else {
+                $('body').css('background-color', backgroundOriginal)
+            }
+        })
+
+
+
+    </script>
+</body>

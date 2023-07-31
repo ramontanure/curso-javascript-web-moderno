@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cores</title>
+    <style>
+        /* 
+            https://www.w3schools.com/colors/colors_hsl.asp
+            
+            https://coolors.co/
+            http://paletton.com/
+
+            HSL
+            Hel vai de 0 a 360 vai variando de 0 que é um vermelho ate 360 
+            Saturacao de 0 a 100 quando ta no 100 é a cor mais vida e quando ta em 0 é cinza quando a saturacao é 0 e voce saturar o hel nao vai adiantar
+            Litens 50% seria ideal cor viva, quando for pro 100% a cor vai embranquecendo e pra menos de 100% vai ficar mais escura
+
+            rgb red green blue varia de 0 a 255 em cada uma dessas cores
+        */
+
+        body {
+            /* Primeira forma  */
+            background-color: green ;
+            /* Valores hexadecimais é dividido em tres partes, 1 00ateff 2 00ateff 3 00ateff  0123456789abcdef*/
+            background-color: #f67809;
+            background-color: #fff;
+            /* APlicar transparencia pra cor, vermelho verde e azul e quarta parte transparencia*/
+            /* 8 caracteres ou 4 caracteres 4 deles sendo iguais */
+            background-color: #edc91280;
+            /* Base decimal, tenho mais azul, */
+            background-color: rgb(55, 110, 220);
+            /*rgba red green blue e a de transparencia, voce tem essa possibilidade tambem  */
+            background-color: rgba(55, 110, 220, 0.2);
+            /* hue, saturation e light */
+            background-color: hsl(299, 58%, 50%);
+            /* hsla com a transparencia */
+            background-color: hsla(200, 58%, 50%, 50%);
+        }
+
+
+        /* Unidades absolutas
+          .px
+         */
+         /* Unidade VIewport 
+         VIew port é o tamanho da pagina, incluse voce pode mexer o browser 
+
+         vh, voce pega a altura do view port e divide por 100 1vw significa 1/100 avos da altura
+         vh 10 vh é 10% DA ALTURA 
+         100 vh altura inteira
+
+         vw tambem tem a mesma logica, voce pega a largura e divide por 100, 1 vw 1/100avos
+
+         unidade relativa 
+        
+        mais ou menos a mesma coisa do vh e vw 
+         vmin menor dimensao 
+         vmax maior dimensao 
+         */
+
+         /* font baseadas em unidades absolutas 
+           font baseadas em tamanhos relativos 
+
+           rem voce tem o tamanho relativo do principal da sua aplicacao
+           em voce tem uma font baseada em uma tag pai que uma div, afont é 24px,  se voce colocar 2em voce vai pegar 2 vezes a fonte de seu pai que é 24px
+           se no pai o body voce tiver 50px e voce usa 2 rem voce ta referenciando a raiz e nao a fonte do pai
+          */
+          /* Caso do percentual é um caso a parte
+          VOce pode ter dimensoes da propria tela view port, voce pode ter fontes definida percentual
+
+          
+          
+          
+           */
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

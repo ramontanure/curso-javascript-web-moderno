@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #02</h1>
+    <div id='div1'>1</div>
+    <div id="resultado1">?</div>
+    <br>
+    <input type="text" placeholder="Digite e Selecione">
+    <div id="resultado2">?</div>
+    <script>
+        // Essa função quando for chamada ela vai colocar na div 1 uma classe destaque se não tiver, e se tiver não vai colocar
+        const alternarDestaque = () => $('#div1').toggleClass('destaque')
+        // Posso colocar em dois eventos diferentes usando o on e aplicar a função callback alternar destaque
+        // $('#div1').on('mouseenter mouseleave', alternarDestaque)
+        // hover quando ele passar em cima da div 2
+        // Se voce quiser fazer diferente na hora de sair voce vai ter uma segunda função
+        // Posso ter duas chamadas uma quando ele entrar e outra quando ele sair
+        $('#div1').hover(alternarDestaque, alternarDestaque)
+        // one quer dizer que esse evento vai acontecer uma unica vez, quando acontecer uma vez esse evento vai ser desregistrado, a callback vai ser chamada apenas uma unica vez
+        $('#div1').one('mouseenter', e => alert('Aviso IMPORTANTE: Obrigado!'))
+        // Outro evento seria o double click 
+        $('#div1').dblclick(e => $('#div1').fadeOut(1000).fadeIn(1000))
+        // é voce fazer o evento quando redimensiona a tela 
+        // Sempre que a tela do browser modificar ele vai pegar a altura e a largura da tela e colocar no resultado1
+        $(window).resize(function (e) {
+            const l = $(window).width()
+            const a = $(window).height()
+            $('#resultado1').html(`Largura: ${l} e Altura: ${a} `)
+        })
+        // Vou selecionar os elementos a partir de um filtro :input vai pegar os inputs e quando acontecer um select dentro de um input vai chamar essa função
+        $(':input').select(e => {
+            // A partir do momento que voce vai selecionando ele vai pegar o trecho selecionado e vai colocar no resultado 2
+            const inicio = e.target.selectionStart
+            const fim = e.target.selectionEnd
+            $('#resultado2').html(e.target.value.substring(inicio, fim))
+
+        })
+
+    </script>
+</body>

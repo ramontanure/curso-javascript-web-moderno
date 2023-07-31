@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Herança</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            font-size: 40px;
+            border: solid 3px red;
+            padding: 50px;
+        }
+        div {
+            /* Essa palavraa inherit é que voce quer herdar tal atributo de seu pai, que o atributo border em cima ele foi colocado só no pai que é o body */
+            /* QUero herdar a borda de seu pai, que não foi herdado por padrao */
+            border: inherit;
+            padding: inherit;
+        }
+    </style>
+</head>
+<!-- 2em é 2 vezes o tamanho padrao -->
+<!-- A borda por padrao nao é transmitido por herança 
+mas tem esse comportamento que foi envutido no fontfamily e font-size-->
+<body>
+    <h1>Herança</h1>
+    <div>Estou herdando</div>
+    <span><p>teste</p></span>
+</body>
+
+</html>

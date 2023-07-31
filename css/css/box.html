@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Box Model</title>
+    <style>
+        body {
+            font-size: 80px;
+            margin: 0;
+        }
+        .c1 {
+            background-color: orange;
+        }
+        .c3 {
+            background-color: skyblue;
+        }
+        .c2 {
+            background-color: tomato;
+        }
+        div {
+            /* float left faz com que os elementos caiam pra esquerda */
+            float: left;
+            /* computado dentro ad altura e largura do elemento */
+            padding-top: 100px;
+            padding: 10px 50px 100px 150px;
+            padding: 100px 50px;
+            padding: 50px;
+            margin: 0px 20px;
+            border: solid 15px black;
+        }
+    </style>
+</head>
+<!-- dentro de um box model temos o conteudo, temos um padding que faz parte da estilizacao(dimensoes)desse componente(elemento) temos um border e temos o margin para separar, fazer essa divisao entre demais componentes -->
+<body>
+    <div class="c1">1</div>
+    <div class="c2">2</div>
+    <div class="c3">3</div>
+</body>
+
+</html>
